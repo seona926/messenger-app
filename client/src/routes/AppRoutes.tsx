@@ -10,6 +10,7 @@ import LoginPage from "../components/LoginPage";
 import SignUpPage from "../components/SignUpPage";
 import MainPage from "../components/MainPage";
 import SendMessageModal from "../components/SendMessageModal";
+import ReadMessagePopup from "../components/ReadMessagePopup";
 import FindMatchesPage from "../components/FindMatchesPage";
 import QuestionPage from "../components/QuestionPage";
 import ResultsPage from "../components/ResultsPage";
@@ -22,6 +23,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/send-message/:userId" element={<SendMessageModal />} />
+      <Route path="/read-message/:userId" element={<ReadMessagePopup />} />
       <Route path="/find-matches" element={<FindMatchesPage />} />
       <Route path="/questions" element={<QuestionPage />} />
       <Route path="/questions/:numQuestions" element={<QuestionPage />} />

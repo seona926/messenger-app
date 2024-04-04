@@ -21,7 +21,7 @@ const MainPage: React.FC = () => {
   ];
 
   const handleSendClick = () => {
-    navigate("/send-message/user1");
+    navigate("/read-message/l_eein1234");
   };
 
   return (

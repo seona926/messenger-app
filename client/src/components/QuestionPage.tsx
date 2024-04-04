@@ -1,7 +1,7 @@
 // QuestionPage.tsx
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Layout from "../layouts/Layout"; // Make sure the path is correct based on your project structure
+import Layout from "../layouts/Layout";
 
 interface Question {
   id: number;
@@ -9,43 +9,61 @@ interface Question {
   options: string[];
 }
 
+interface Option {
+  question: string;
+  option1: string;
+  option2: string;
+  option3: string;
+  option4: string;
+  option5: string;
+}
+
 const QuestionPage: React.FC = () => {
   const { numQuestions } = useParams<{ numQuestions: string }>();
-  const totalQuestions = parseInt(numQuestions || "0", 10); // Correctly parse numQuestions
-  const navigate = useNavigate();
+  const totalQuestions = parseInt(numQuestions || "0", 10);
   const [currentSetIndex, setCurrentSetIndex] = useState(0);
-  const [answers, setAnswers] = useState<{ [key: string]: string }>({});
-
-  // Simulate fetching the questions. In a real application, you would fetch this data.
-  const questions: Question[] = Array.from(
-    { length: totalQuestions },
-    (_, index) => ({
-      id: index,
-      text: `Question ${index + 1}`,
-      options: ["Option A", "Option B", "Option C", "Option D", "Option E"],
-    })
-  );
+  const [options, setOptions] = useState<{ [key: string]: string }>({});
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const navigate = useNavigate();
 
   const handleAnswerSelect = (questionId: number, option: string) => {
-    setAnswers((prev) => ({ ...prev, [questionId]: option }));
+    setOptions((prev) => ({ ...prev, [questionId]: option }));
   };
 
   const handleSubmit = () => {
-    // Check if there are more questions to answer; otherwise, navigate to results
     const nextSetIndex = currentSetIndex + 3;
     if (nextSetIndex < totalQuestions) {
       setCurrentSetIndex(nextSetIndex);
     } else {
-      navigate("/results"); // Adjust the navigation path as needed
+      navigate("/results");
     }
   };
 
   useEffect(() => {
-    // Ensure there are questions to display; otherwise, redirect or show a message
-    if (totalQuestions <= 0) {
-      navigate("/find-matches"); // Navigate to an appropriate page if no questions
+    const fetchQuestions = async () => {
+      const response = await fetch(
+        `http://localhost:3001/getQuestions/${numQuestions}`
+      );
+      const data = await response.json();
+      setQuestions(data.question);
+
+      const questionOptions = data.map((question: Option) => ({
+        option1: question.option1,
+        option2: question.option2,
+        option3: question.option3,
+        option4: question.option4,
+        option5: question.option5,
+      }));
+
+      setOptions(questionOptions);
+    };
+
+    if (totalQuestions > 0) {
+      fetchQuestions();
+    } else {
+      navigate("/find-matches");
     }
-  }, [totalQuestions, navigate]);
+  }, [numQuestions, totalQuestions, navigate]);
 
   return (
     <Layout>
@@ -55,18 +73,18 @@ const QuestionPage: React.FC = () => {
           .map((question) => (
             <div key={question.id}>
               <p>{question.text}</p>
-              {question.options.map((option) => (
+              {/* {options.map(option => (
                 <label key={option}>
                   <input
                     type="radio"
                     name={`question-${question.id}`}
                     value={option}
-                    checked={answers[question.id] === option}
+                    checked={options[question.id] === option}
                     onChange={() => handleAnswerSelect(question.id, option)}
                   />
                   {option}
                 </label>
-              ))}
+              ))} */}
             </div>
           ))}
         <button onClick={handleSubmit}>Next</button>
