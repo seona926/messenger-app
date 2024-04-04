@@ -1,13 +1,25 @@
 /* login.module.css */
 .loginContainer {
+  position: relative;
+  height: calc(100vh - 65px);
+}
+
+.logoContainer {
+  margin-top: 6vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  height: 23vh;
+}
+
+.logoImage {
+  width: 30vw;
 }
 
 .loginTitle {
-  margin-top: 5vh;
+  margin-top: 4vh;
+  width: 100%;
   font-size: 25px;
   font-weight: 700;
 }
@@ -15,7 +27,7 @@
 .formContainer {
   font-size: 20px;
   font-weight: 500;
-  margin-top: 4vh;
+  margin-top: 15px;
   width: 100%;
 }
 
@@ -27,21 +39,79 @@
 
 .form input {
   width: 100%;
-  height: 27px;
+  height: 35px;
   margin-bottom: 5px;
   font-size: 17px;
-  border-radius: 5px;
+  background-color: #ffffff;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2.5px solid #3a3a3a;
 }
 
 .form input:last-child {
   margin-bottom: 10px;
 }
 
+.form input:focus {
+  border-bottom: 2.5px solid #793ee6;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1em;
+  height: 1em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #793ee6;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.bottomContainer {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+}
+
+.forgotPassword {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 14px;
+  font-size: 17px;
+  cursor: pointer;
+  color: rgb(57, 46, 161);
+  font-weight: 600;
+}
+
 .loginButton {
-  height: 30px;
+  height: 50px;
+  width: 100%;
   font-size: 17px;
   font-weight: 700;
-  border: 1px solid #c76ea5;
+  border: 1px solid #793ee6;
   background-color: #fff;
   border-radius: 5px;
 }

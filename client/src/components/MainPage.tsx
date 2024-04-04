@@ -9,16 +9,20 @@ const MainPage: React.FC = () => {
   const navigate = useNavigate();
 
   const chatRooms = [
-    { id: 1, nickname: "Alice", message: "Hey, how are you doing?" },
-    { id: 2, nickname: "Cindy", message: "What's up today?" },
+    { id: 1, nickname: "EPIKHIGH", message: "오늘은 좀 어떻게 지내고있어?" },
+    { id: 2, nickname: "SOPHIA", message: "아~~~ 오늘 아침에 지각했어" },
     {
       id: 3,
-      nickname: "Jenny",
-      message: "I will have a meeting in a minuite.",
+      nickname: "OMGOMG",
+      message: "이번 주말에 우리 듄2 보러가자 ㅋㅋㅋ",
     },
-    { id: 4, nickname: "Rose", message: "I'm sooo hungry!" },
-    { id: 5, nickname: "Lisa", message: "I miss you." },
+    { id: 4, nickname: "NewJeans", message: "나는 베트남여행이 더 좋은듯?" },
+    { id: 5, nickname: "__GoodGood___", message: "커피땡긴다 ㅋㅋ ㅠㅠ" },
   ];
+
+  const handleSendClick = () => {
+    navigate("/send-message/user1");
+  };
 
   return (
     <Layout>
@@ -62,6 +66,7 @@ const MainPage: React.FC = () => {
       <div className={styles.chattingRoomSection}>
         {chatRooms.map((room) => (
           <div key={room.id} className={styles.chattingRoomItem}>
+            <span className={styles.newIcon}>N</span>
             <img
               src={`https://api.dicebear.com/8.x/pixel-art/svg?seed=John${room.id}-${room.nickname}.svg`}
               alt="Avatar"
@@ -75,7 +80,9 @@ const MainPage: React.FC = () => {
                   : room.message}
               </p>
             </div>
-            <div className={styles.msgSendButton}>SEND</div>
+            <div className={styles.msgSendButton} onClick={handleSendClick}>
+              OPEN
+            </div>
           </div>
         ))}
       </div>

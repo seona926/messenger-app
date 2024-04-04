@@ -1,0 +1,48 @@
+.modalContent {
+  height: 100%;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.messageArea {
+  min-height: 400px;
+  height: auto;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  line-height: 1.5;
+  padding: 10px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  background-size: 20px 20px;
+  color: rgb(109, 109, 109);
+  font-size: 14px;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sendMessageButton {
+  height: 37px;
+  width: 49%;
+  font-size: 16px;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(83, 83, 83);
+  background-color: #fff;
+  border: 1px solid #c76ea5;
+  border-radius: 7px;
+}
+
+.backButton {
+  height: 37px;
+  width: 49%;
+  font-size: 16px;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(83, 83, 83);
+  background-color: #f1f1f1;
+  border: 1px solid #b1b1b1;
+  border-radius: 7px;
+}
