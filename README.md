@@ -15,7 +15,7 @@
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [CSS Modules]
+- **Styling**: CSS Modules
 
 ## Routing
 
