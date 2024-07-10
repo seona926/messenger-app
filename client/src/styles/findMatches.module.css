@@ -1,0 +1,38 @@
+.findMatchesContainer {
+  height: 100%;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.options {
+  display: flex;
+  height: 30vh;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.options button {
+  height: 45px;
+  font-size: 14px;
+  margin-bottom: 17px;
+  border-radius: 15px;
+  border: none;
+  color: #292929;
+  background-color: #ebeca0;
+  cursor: pointer;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

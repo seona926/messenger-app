@@ -1,0 +1,110 @@
+.profileSection {
+  height: 14vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #a5a5a5;
+  border-radius: 5px;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+}
+
+.myAvatar {
+  width: 100px; /* Adjust the size as needed */
+  height: 100px; /* Adjust the size as needed */
+  border-radius: 50%; /* Makes the image round */
+  background-color: white; /* White background for the circle */
+  padding: 10px; /* Adjust the padding to control the size of the white background */
+  object-fit: cover; /* Ensures the image covers the area without distorting */
+  box-sizing: border-box; /* Includes padding in the width/height calculations */
+  margin-right: 10px;
+  border: 1px solid #a5a5a5;
+}
+
+.myName {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.chattingRoomSection {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* This should make 2 items per row */
+  gap: 10px; /* Adjust gap as needed */
+  margin-bottom: 60px;
+}
+
+/* Define your styles here */
+.chattingRoomItem {
+  height: 80px;
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 2.5px 0 2.5px 0;
+  position: relative;
+  font-size: 14px;
+}
+
+.chatting {
+  margin-left: 10px;
+  width: 59%;
+}
+
+.nickName {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 1px;
+  border-radius: 50%; /* Makes the image round */
+  border: 1px solid #dbdbdb;
+  background-color: white; /* White background for the circle */
+  padding: 1px; /* Adjust the padding to control the size of the white background */
+  object-fit: cover; /* Ensures the image covers the area without distorting */
+  box-sizing: border-box; /* Includes padding in the width/height calculations */
+  margin-right: 10px;
+}
+
+.newIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 17%;
+  left: 2%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: #f02748;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.msgSendButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  width: 3.2em;
+  /* border: 2px solid #c76ea5; */
+  background-color: #f1d884;
+  border-radius: 5px;
+  font-weight: 700;
+  color: rgb(73, 73, 73);
+  margin-left: 4px;
+}
